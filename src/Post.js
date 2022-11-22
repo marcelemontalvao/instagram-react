@@ -6,7 +6,7 @@ export default function Post(props) {
     const [countLikes, setCountLikes] = useState(props.postObject.count)
     let countTime = 0;
     return (
-        <li className="post">
+        <li className="post" data-test="post">
             <div className="top-post">
                 <div className="perfil">
                     <img src={props.postObject.perfilImage} />
@@ -15,7 +15,7 @@ export default function Post(props) {
                 <ion-icon name="ellipsis-horizontal"></ion-icon>
             </div>
             
-            <img src={props.postObject.image} onClick={()=> {
+            <img src={props.postObject.image} data-test="post-image" onClick={()=> {
                 countTime++;
                 if(countTime == 2) {
                     setLikeName("heart"); 
@@ -30,7 +30,7 @@ export default function Post(props) {
 
             <div className="icons-post">
                 <div>
-                    <ion-icon name={likeName} onClick={()=> {
+                    <ion-icon name={likeName} data-test="like-post" onClick={()=> {
                         if(likeName == "heart-outline") {
                             setLikeName("heart"); 
                             setCountLikes(countLikes+1);
@@ -44,7 +44,7 @@ export default function Post(props) {
                     <ion-icon name="paper-plane-outline"></ion-icon>
                 </div>
                 <div>
-                    <ion-icon name={savePost} onClick={()=> {
+                    <ion-icon name={savePost} data-test="save-post" onClick={()=> {
                         if(savePost == "bookmark-outline") {
                             setSavePost("bookmark"); 
                         }
@@ -72,7 +72,7 @@ export default function Post(props) {
             </div>
 
             <div className="number-all-posts">
-                <span>Ver todos os {props.postObject.number} comentários</span>
+                <span>Ver todos os <span data-test="likes-number">{props.postObject.number}</span> comentários</span>
             </div>
 
             
