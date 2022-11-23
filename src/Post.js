@@ -17,9 +17,9 @@ export default function Post(props) {
             
             <img src={props.postObject.image} data-test="post-image" onClick={()=> {
                 countTime++;
-                if(countTime == 2) {
+                if(countTime === 2) {
                     setLikeName("heart"); 
-                    if(props.postObject.count == countLikes) {
+                    if(props.postObject.count === countLikes) {
                         setCountLikes(countLikes+1);
                     }
                 }
@@ -31,7 +31,7 @@ export default function Post(props) {
             <div className="icons-post">
                 <div>
                     <ion-icon name={likeName} data-test="like-post" onClick={()=> {
-                        if(likeName == "heart-outline") {
+                        if(likeName === "heart-outline") {
                             setLikeName("heart"); 
                             setCountLikes(countLikes+1);
                         }
@@ -45,7 +45,7 @@ export default function Post(props) {
                 </div>
                 <div>
                     <ion-icon name={savePost} data-test="save-post" onClick={()=> {
-                        if(savePost == "bookmark-outline") {
+                        if(savePost === "bookmark-outline") {
                             setSavePost("bookmark"); 
                         }
                         else {

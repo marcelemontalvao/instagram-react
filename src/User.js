@@ -2,7 +2,9 @@ export default function User(props) {
     return (
         <div data-test="user">
             <div className="perfil">
-                <img src={props.userImage} onClick={props.changeUserImage} data-test="profile-image" />
+                <img src={props.userImage} onError={(e)=> {
+                    e.target.src="./assets/marcelemontalvao.jpeg"
+                }} onClick={props.changeUserImage} data-test="profile-image" />
                
                 <div>
                     <p className="sidebarusername">marcelemontalvao_</p>

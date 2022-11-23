@@ -5,14 +5,22 @@ import {useState} from "react"
 export default function Sidebar() {
     const [username, setUsername] = useState("Marcele Montalvão");
     const [userImage, setUserImage] = useState("./assets/marcelemontalvao.jpeg");
+    function setUser() {
+      const name = prompt("Qual o seu novo nome de usuário?");
+      if(name !== "") {
+        setUsername(name);
+      }
+    }
+    function setImgUser() {
+      const img = prompt("Qual a sua nova imagem? Insira um link.");
+      if(img !== "") {
+        setImgUser(img);
+      }
+    }
     return (
         <aside>
             <div className="sidebar">
-              <User username={username} userImage={userImage} changeUsername={()=> {
-                setUsername(prompt("Qual o seu novo nome de usuário?"))
-              }} changeUserImage={()=> {
-                setUserImage(prompt("Qual a sua nova imagem? Insira um link."))
-              }} />
+              <User username={username} userImage={userImage} changeUsername={setUser} changeUserImage={setImgUser} />
               <Sugestions />
               <div className="infosidebar">
                   <p className="subsidebar">
