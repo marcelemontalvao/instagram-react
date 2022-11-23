@@ -7,15 +7,27 @@ export default function Sidebar() {
     const [userImage, setUserImage] = useState("./assets/marcelemontalvao.jpeg");
     function setUser() {
       const name = prompt("Qual o seu novo nome de usuário?");
-      if(name !== "") {
+      if(name === null) {
+      } else if (name !== "") {
         setUsername(name);
+      } 
+    } 
+    function checkUrl(string) {
+      try {
+        let url = new URL(string);
+        return true;
+      } catch (err) {
+        return false;
       }
     }
     function setImgUser() {
       const img = prompt("Qual a sua nova imagem? Insira um link.");
-      if(img !== "") {
-        setImgUser(img);
-      }
+      if(img === null) {
+      } else if (img !== "") {
+        if(checkUrl(img)) {
+          setUserImage(img);
+        }
+      } 
     }
     return (
         <aside>
